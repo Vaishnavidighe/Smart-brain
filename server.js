@@ -7,21 +7,19 @@ const register = require('./Controllers/register');
 const signin = require('./Controllers/signIn');
 const profile = require('./Controllers/profile');
 const image = require('./Controllers/image');
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
 const db = knex({
   client: 'pg',
-  // connection: {
+  connection: {
+   connectionString: process.env.DATABASE_URL,
+   ssl: true
+  }
+   // connection: {
   //   host : '127.0.0.1',
   //   user : 'postgres',
   //   password : 'Newuser@123',
   //   database : 'smartbrain'
   // }
-  connection: {
-   //host : 'postgresql-slippery-79119',
-   connectionString: process.env.DATABASE_URL,
-   ssl: true
-    
-  }
 });
 
 const app= express();
