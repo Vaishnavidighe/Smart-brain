@@ -10,12 +10,17 @@ const image = require('./Controllers/image');
 
 const db = knex({
   client: 'pg',
+  // connection: {
+  //   host : '127.0.0.1',
+  //   user : 'postgres',
+  //   password : 'Newuser@123',
+  //   database : 'smartbrain'
+  // }
   connection: {
-    //host : '127.0.0.1',
-    host : 'postgresql-slippery-79119',
-    user : 'postgres',
-    password : 'Newuser@123',
-    database : 'smartbrain'
+   //host : 'postgresql-slippery-79119',
+   host: process.env.DATABASE_URL,
+   ssl: true
+    
   }
 });
 
