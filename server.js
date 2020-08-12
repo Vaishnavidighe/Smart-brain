@@ -18,7 +18,7 @@ const db = knex({
   // }
   connection: {
    //host : 'postgresql-slippery-79119',
-   host: process.env.DATABASE_URL,
+   connectionString: process.env.DATABASE_URL,
    ssl: true
     
   }
